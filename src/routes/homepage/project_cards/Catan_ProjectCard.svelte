@@ -14,28 +14,22 @@
         }
     }
 
-    function onScroll(){
-        const doc = document.documentElement;
-        const scrollPos = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-        document.querySelector('.front_portfolio_card').style.background = 'linear-gradient(' + (scrollPos/3) + 'deg, rgba(0, 219, 222, 0.95), rgba(252, 0, 255, 0.9)) right';
-        document.querySelector('.back_portfolio_card').style.background = 'linear-gradient(' + (-(scrollPos/3)) + 'deg, rgba(0, 219, 222, 0.95), rgba(252, 0, 255, 0.9)) right';
-
-    }
-
-    document.addEventListener('scroll', onScroll);
+    const front_url = new URL('/static/Catan-Background.png', import.meta.url).href;
+    const back_url = new URL('/static/Catan-Background-2.png', import.meta.url).href;
 
 </script>
 
 
-<div id ="portfolio_card" class="container">
+<div id = "catan_card" class="container">
     <div class="card" on:click={flip_card}>
-        <div class="front_portfolio_card">
-            <h2>Portfolio Website</h2>
+        <div class="front" style="background-image: url('{front_url}') ;">
+            <h2>Conquerors of Catan</h2>
         </div>
-        <div class="back_portfolio_card">
-            <h3>Portfolio Website</h3>
-            <p>This website is built using Svelte, and the source code is available to view on my GitHub profile. It uses no libraries, and all the code was written by me.</p>
-            <p>Source Code: <a href="https://github.com/Harry55494/portfolio" target="_blank">github.com/Harry55494/<br>portfolio</a></p>
+        <div class="back" style="background-image: url('{back_url}') ;">
+            <h4>Conquerors of Catan</h4>
+            <p>Conquerors of Catan is my final year project for my Bachelors degree.
+                It aims to implement Monte Carlo Tree Search in the board game Settlers of Catan to create a strong AI player. </p>
+            <p>Source Code is currently private, but will be released upon my project finishing</p>
         </div>
     </div>
 </div>
@@ -64,7 +58,12 @@
         cursor: pointer;
     }
 
-    .front_portfolio_card{
+
+    .front{
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
         border-radius: 20px;
         position: absolute;
         backface-visibility: hidden;
@@ -72,50 +71,51 @@
         height: 100%;
     }
 
-    .back_portfolio_card{
+    .back{
+        background-size: 100% 100%;
+        overflow: hidden;
         position: absolute;
-        background: linear-gradient(60deg, rgba(252, 0, 255, 0.9), rgba(0, 219, 222, 0.95)) left;
         border-radius: 20px;
         backface-visibility: hidden;
         width: 100%;
         height: 100%;
         transform: rotateY(180deg);
-        overflow: hidden;
-    }
-
-    h2{
-        font-family: 'Poppins', sans-serif;
-        padding: 20px;
-        font-size: calc(min(28px + 5vw, 65px));
-        text-align: center;
-        margin-top: 65px;
-    }
-
-    p  {
-        text-align: center;
-        margin: 15px;
-        font-size: calc(min(8px + 2vw, 18px));
-    }
-
-    a{
-        color: #ffffff;
-    }
-
-    p:not(:last-child){
-        padding-top: 15px;
-    }
-
-    h3{
-        text-align: center;
-        font-size: 40px;
-        font-weight: 600;
-        font-family: 'Poppins', sans-serif;
-        margin-bottom: 25px;
-        margin-top: 40px;
+        color: white;
     }
 
     .container:hover{
         transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    h2{
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-family: 'Alkalami', serif;
+        font-size: calc(min(20px + 6vw, 60px));
+        color: white;
+        text-align: center;
+        margin-top: 100px;
+        backdrop-filter: blur(5px);
+    }
+
+    h4, p{
+        color: white;
+        text-align: center;
+    }
+
+    h4{
+        font-size: 45px;
+        font-weight: 600;
+        font-family: 'Alkalami', serif;
+        margin-bottom: 25px;
+        margin-top: 40px;
+    }
+
+    p{
+        margin: 12px;
+        font-size: calc(min(10px + 2vw, 20px));
+        font-family: 'Alkalami', serif;
     }
 
     @media (max-width: 600px){
@@ -148,13 +148,12 @@
         }
 
         h2{
-            margin-top: 20px;
+            margin-top: 60px;
         }
 
-        h3{
+        h4{
             display: none;
         }
-
 
     }
 

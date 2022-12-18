@@ -1,10 +1,10 @@
 
 <script>
 
-    import StartPage_ProjectCard from "./ProjectCards/StartPage_ProjectCard.svelte";
-    import JeffersonIE_ProjectCard from "./ProjectCards/JeffersonIE_ProjectCard.svelte";
-    import Portfolio_ProjectCard from "./ProjectCards/Portfolio_ProjectCard.svelte";
-    import Catan_ProjectCard from "./ProjectCards/Catan_ProjectCard.svelte";
+    import StartPage_ProjectCard from "./project_cards/StartPage_ProjectCard.svelte";
+    import JeffersonIE_ProjectCard from "./project_cards/JeffersonIE_ProjectCard.svelte";
+    import Portfolio_ProjectCard from "./project_cards/Portfolio_ProjectCard.svelte";
+    import Catan_ProjectCard from "./project_cards/Catan_ProjectCard.svelte";
 
     function isInViewport(element){
         /**
@@ -52,7 +52,11 @@
         }
     }
 
-    document.addEventListener('scroll', checkForProjectClickTooltip)
+    import { browser } from '$app/environment';
+
+    if (browser) {
+        window.addEventListener('scroll', checkForProjectClickTooltip)
+    }
 
 </script>
 

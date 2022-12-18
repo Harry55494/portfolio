@@ -33,17 +33,17 @@
         colour1: "#ceb91c",
         colour2: "#c4ad1b",
         },{
+        title: "SvelteKit",
+        image: "devicon-svelte-plain",
+        rating: "Intermediate",
+        colour1: "#e56926",
+        colour2: "#ea5708",
+        },{
         title: "C++",
         image: "devicon-cplusplus-plain",
         rating: "Intermediate",
         colour1: "#25b9f9",
         colour2: "#24d0a2",
-        },{
-        title: "Svelte",
-        image: "devicon-svelte-plain",
-        rating: "Beginner",
-        colour1: "#e56926",
-        colour2: "#ea5708",
         },{
         title: "PHP",
         image: "devicon-php-plain",

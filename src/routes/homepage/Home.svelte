@@ -10,7 +10,13 @@
 
     }
 
-    document.addEventListener('scroll', onScroll);
+    import { browser } from '$app/environment';
+
+    if (browser) {
+        window.addEventListener('scroll', onScroll);
+    }
+
+    const portrait_url = new URL('/static/Portrait.png', import.meta.url).href;
 
 </script>
 
@@ -24,7 +30,7 @@
         <h3>A Student and Full Stack Developer from 🇬🇧</h3>
     </div>
     <div class="flex_element">
-        <img src="/static/Portrait.png" alt = "Harrison">
+        <img src="{portrait_url}" alt = "Harrison">
     </div>
 
 </div>
@@ -33,7 +39,7 @@
 <style>
 
     .container{
-        margin: 18vh 4vw 8vw 4vw;
+        margin: 14vh 4vw 8vw 4vw;
         color: white;
         line-height: 1.1;
         max-width: 1800px;

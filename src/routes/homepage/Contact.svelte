@@ -1,4 +1,10 @@
 
+<script>
+
+    const download_url = new URL('/CV.pdf', import.meta.url).href
+
+</script>
+
 <div class = 'container' id ="contact">
     <h1>Contact & More</h1>
 
@@ -28,7 +34,7 @@
     </div>
 
     <div style="display:flex;justify-content: center;">
-        <a href="/static/CV.pdf" download="Harrison_Phillingham_CV.pdf">
+        <a href="{download_url}" download="{download_url}">
             <div id = "download_border">
                 <div class="cv_download">
                     ⬇️  Download CV
